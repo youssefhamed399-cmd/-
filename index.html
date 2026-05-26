@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>إلي حبيبتي</title>
+    <title> اعتراف قلب</title>
 
     <!-- Google Fonts: Amiri for poetry, Cairo for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -332,16 +332,25 @@
             transition: var(--transition-smooth);
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(35px);
-            will-change: transform, opacity;
-        }
-
-        .poetry-card.visible {
+            /* النصوص ظاهرة دائماً */
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-                border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* حركة خفيفة عند التمرير فقط إذا أضيف الكلاس */
+        .poetry-card.visible {
+            animation: cardReveal 0.8s ease-out forwards;
+        }
+
+        @keyframes cardReveal {
+            from {
+                opacity: 0.7;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .poetry-card:hover {
@@ -642,5 +651,4 @@
                 <p class="verse-line">وَإِذَا سَأَلْتِينِي: لِمَاذَا أَنْتَ مُتْعَبٌ؟</p>
                 <p class="verse-line">قُلْتُ: الْهَوَى يَا حَبِيبَتِي أَتْعَبَ الْغَرَامْ</p>
                 <span class="verse-divider"></span>
-                <p class="verse-line">فَمَا عُدْتُ أَدْرِي أَأَنْتِ الْحُبُّ أَمْ وَطَنِي</p>
-                <p class="verse-line">أَمْ أَنَّنِي فِي هَوَاكِ خُلِقْتُ
+                <p class="vers
