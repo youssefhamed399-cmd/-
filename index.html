@@ -3,174 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> اعتراف قلب</title>
+    <title>همسات الحب | اعتراف قلب</title>
 
-    <!-- Google Fonts: Amiri for poetry, Cairo for headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Reem+Kufi+Fun&display=swap" rel="stylesheet">
+    <!-- خطوط عربية راقية -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --bg-deep: #0d0010;
-            --bg-wine: #1a0018;
-            --bg-card: rgba(20, 5, 20, 0.55);
-            --gold: #d4a574;
-            --gold-light: #e8cfa0;
-            --gold-pale: #f5e6d3;
-            --rose: #c97d7d;
-            --rose-soft: #e8b4b8;
-            --rose-glow: rgba(200, 120, 130, 0.25);
-            --text-primary: #f5e6d3;
-            --text-secondary: #e0d0c0;
-            --border-subtle: rgba(212, 165, 116, 0.25);
-            --border-glow: rgba(212, 165, 116, 0.5);
-            --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 80px rgba(180, 100, 80, 0.08);
-            --shadow-gold: 0 0 30px rgba(212, 165, 116, 0.2);
-            --glass-blur: blur(16px);
-            --transition-smooth: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
         body {
-            background: radial-gradient(ellipse at 50% 30%, #1e0018 0%, #0d0010 50%, #060008 100%);
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #0d0010 0%, #1a0018 50%, #100014 100%);
             min-height: 100vh;
             font-family: 'Amiri', 'Cairo', serif;
-            color: var(--text-primary);
-            line-height: 1.9;
-            overflow-x: hidden;
+            color: #f5e6d3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 2.2;
             position: relative;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        /* ──────────────── Floating Particles ──────────────── */
-        .particles-container {
+        /* خلفية نجوم خفيفة بدل الجزيئات الكثيرة */
+        body::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: radial-gradient(circle at 20% 30%, rgba(232, 180, 184, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 15%);
             pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
         }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            animation: floatUp ease-in-out infinite;
-            opacity: 0;
-        }
-
-        .particle.gold {
-            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
-            box-shadow: 0 0 12px 2px rgba(232, 207, 160, 0.5);
-        }
-        .particle.rose {
-            background: radial-gradient(circle, var(--rose-soft) 0%, transparent 70%);
-            box-shadow: 0 0 10px 2px rgba(232, 180, 184, 0.45);
-        }
-        .particle.cream {
-            background: radial-gradient(circle, #fdf5ed 0%, transparent 70%);
-            box-shadow: 0 0 8px 2px rgba(253, 245, 237, 0.35);
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(105vh) translateX(0) scale(0.2);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.7;
-            }
-            40% {
-                opacity: 0.55;
-            }
-            70% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-15vh) translateX(40px) scale(1.3);
-                opacity: 0;
-            }
-        }
-
-        @keyframes floatUpAlt {
-            0% {
-                transform: translateY(105vh) translateX(0) scale(0.3);
-                opacity: 0;
-            }
-            8% {
-                opacity: 0.65;
-            }
-            45% {
-                opacity: 0.4;
-            }
-            75% {
-                opacity: 0.15;
-            }
-            100% {
-                transform: translateY(-10vh) translateX(-35px) scale(1.1);
-                opacity: 0;
-            }
-        }
-
-        @keyframes twinkle {
-            0%,
-            100% {
-                opacity: 0.25;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.9;
-                transform: scale(1.8);
-            }
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle var(--dur) ease-in-out infinite;
-            animation-delay: var(--delay);
-            box-shadow: 0 0 6px 2px rgba(255, 220, 180, 0.7);
-        }
-
-        /* ──────────────── Main Content Wrapper ──────────────── */
-        .main-wrapper {
+        .container {
+            max-width: 700px;
+            width: 100%;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
+            background: rgba(15, 3, 15, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(200, 130, 130, 0.15);
+            border: 1.5px solid rgba(212, 165, 116, 0.3);
         }
 
-        /* ──────────────── Header ──────────────── */
+        /* العنوان */
         .header {
             text-align: center;
-            padding: 3rem 1rem 2rem;
-            position: relative;
+            margin-bottom: 2rem;
         }
 
-        .header-icon {
-            font-size: 3.5rem;
+        .header .icon {
+            font-size: 2.8rem;
+            animation: heartbeat 2s ease-in-out infinite;
             display: block;
-            animation: heartbeat 2.2s ease-in-out infinite;
-            filter: drop-shadow(0 0 18px rgba(220, 140, 150, 0.6));
             margin-bottom: 0.5rem;
         }
 
@@ -179,476 +74,257 @@
             100% {
                 transform: scale(1);
             }
-            12% {
-                transform: scale(1.18);
+            15% {
+                transform: scale(1.15);
             }
-            24% {
+            30% {
                 transform: scale(1);
             }
-            36% {
-                transform: scale(1.14);
+            45% {
+                transform: scale(1.1);
             }
-            48% {
+            60% {
                 transform: scale(1);
             }
         }
 
         .header h1 {
-            font-family: 'Cairo', 'Reem Kufi Fun', sans-serif;
-            font-size: 2.8rem;
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(180deg, #f5e6d3 0%, #d4a574 40%, #c9976b 70%, #b8805a 100%);
+            background: linear-gradient(to bottom, #f5e6d3, #d4a574);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
-            letter-spacing: 0.02em;
             text-shadow: none;
-            filter: drop-shadow(0 2px 8px rgba(200, 150, 100, 0.4));
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
         }
 
         .header .subtitle {
             font-family: 'Cairo', sans-serif;
-            font-size: 1.1rem;
-            color: var(--rose-soft);
-            letter-spacing: 0.06em;
-            opacity: 0.8;
-            font-weight: 300;
+            color: #e8b4b8;
+            font-size: 1rem;
+            opacity: 0.85;
         }
 
-        .header-divider {
-            width: 100px;
-            height: 2px;
-            margin: 1.2rem auto 0;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            border-radius: 2px;
-            opacity: 0.7;
-        }
-
-        /* ──────────────── Video Section ──────────────── */
-        .video-section {
-            margin: 1.5rem 0 3rem;
-            position: relative;
-        }
-
-        .video-frame {
-            position: relative;
-            border-radius: 20px;
+        /* فيديو */
+        .video-wrapper {
+            margin: 1.5rem 0 2rem;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: var(--shadow-card), var(--shadow-gold);
-            border: 2px solid var(--border-subtle);
-            background: #0a000c;
-            aspect-ratio: 16 / 9;
-            transition: var(--transition-smooth);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 30px rgba(200, 140, 110, 0.2);
+            border: 1.5px solid rgba(212, 165, 116, 0.4);
         }
 
-        .video-frame:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6), 0 0 100px rgba(200, 140, 100, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .video-frame iframe {
+        .video-wrapper iframe {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16 / 9;
             border: none;
             display: block;
         }
 
-        .video-glow-ring {
-            position: absolute;
-            inset: -14px;
-            border-radius: 28px;
-            pointer-events: none;
-            z-index: -1;
-            background: transparent;
-            box-shadow: 0 0 60px 18px var(--rose-glow);
-            animation: glowPulse 3.5s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%,
-            100% {
-                box-shadow: 0 0 50px 14px var(--rose-glow);
-            }
-            50% {
-                box-shadow: 0 0 80px 26px rgba(210, 130, 145, 0.4);
-            }
-        }
-
-        .video-label {
+        .music-note {
             text-align: center;
-            margin-top: 1rem;
-            font-family: 'Cairo', sans-serif;
             font-size: 0.9rem;
-            color: var(--rose-soft);
+            color: #e8b4b8;
+            margin-top: 0.6rem;
             opacity: 0.7;
-            letter-spacing: 0.04em;
         }
 
-        .video-label span {
-            animation: musicPulse 1.6s ease-in-out infinite;
-            display: inline-block;
-            margin: 0 2px;
-        }
-        .video-label span:nth-child(1) {
-            animation-delay: 0s;
-        }
-        .video-label span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .video-label span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes musicPulse {
-            0%,
-            100% {
-                opacity: 0.4;
-                transform: translateY(0);
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-6px);
-            }
-        }
-
-        /* ──────────────── Poetry Cards ──────────────── */
-        .poetry-grid {
+        /* أبيات الشعر */
+        .poetry {
             display: flex;
             flex-direction: column;
             gap: 1.8rem;
+            margin: 1.5rem 0;
         }
 
-        .poetry-card {
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1.5px solid var(--border-subtle);
-            border-radius: 18px;
-            padding: 2rem 2.2rem;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition-smooth);
+        .couplet {
             position: relative;
-            overflow: hidden;
-            /* النصوص ظاهرة دائماً */
-            opacity: 1;
-            transform: translateY(0);
+            padding: 1rem 1.2rem;
+            border-right: 3px solid rgba(212, 165, 116, 0.5);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.4s ease;
         }
 
-        /* حركة خفيفة عند التمرير فقط إذا أضيف الكلاس */
-        .poetry-card.visible {
-            animation: cardReveal 0.8s ease-out forwards;
+        .couplet:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-right-color: #d4a574;
+            padding-right: 1.5rem;
         }
 
-        @keyframes cardReveal {
-            from {
-                opacity: 0.7;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .poetry-card:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.55), 0 0 70px rgba(200, 140, 110, 0.13);
-            transform: translateY(-4px);
-        }
-
-        .poetry-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 160px;
-            height: 160px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.07) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            transition: var(--transition-smooth);
-        }
-
-        .poetry-card:hover::before {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.13) 0%, transparent 70%);
-        }
-
-        .poetry-card::after {
-            content: '';
-            position: absolute;
-            bottom: -40%;
-            left: -20%;
-            width: 130px;
-            height: 130px;
-            background: radial-gradient(circle, rgba(200, 125, 130, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            transition: var(--transition-smooth);
-        }
-
-        .poetry-card:hover::after {
-            width: 170px;
-            height: 170px;
-            background: radial-gradient(circle, rgba(200, 125, 130, 0.11) 0%, transparent 70%);
-        }
-
-        .card-ornament {
-            position: absolute;
-            top: 14px;
-            right: 18px;
-            font-size: 1.2rem;
-            opacity: 0.5;
-            pointer-events: none;
-            transition: var(--transition-smooth);
-        }
-
-        .poetry-card:hover .card-ornament {
-            opacity: 0.85;
-            transform: scale(1.2);
-        }
-
-        .poetry-card .verse-couplet {
-            position: relative;
-            z-index: 1;
-        }
-
-        .poetry-card .verse-line {
-            font-family: 'Amiri', serif;
-            font-size: 1.35rem;
-            font-weight: 400;
-            color: var(--text-primary);
-            line-height: 2.2;
-            text-align: right;
-            letter-spacing: 0.01em;
-            transition: color 0.4s ease;
-        }
-
-        .poetry-card:hover .verse-line {
-            color: #fff8f0;
-        }
-
-        .poetry-card .verse-line:first-child {
-            font-weight: 700;
+        .couplet p {
             font-size: 1.4rem;
+            font-weight: 400;
             color: #fbe9d7;
+            text-align: right;
+            margin: 0.2rem 0;
+            line-height: 2.2;
         }
 
-        .poetry-card .verse-line+.verse-line {
-            margin-top: 0.3rem;
+        .couplet p:first-child {
+            font-weight: 700;
+            color: #fff5e6;
         }
 
-        .verse-divider {
-            display: block;
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 0.9rem 0 0.7rem;
+        /* البيت الأخير مميز */
+        .couplet.final {
+            border-right-color: #e8b4b8;
+            background: rgba(200, 120, 130, 0.06);
+        }
+
+        .couplet.final:hover {
+            background: rgba(200, 120, 130, 0.1);
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to left, transparent, #d4a574, transparent);
+            margin: 0.8rem auto;
             opacity: 0.5;
-            border-radius: 1px;
+            border-radius: 2px;
         }
 
-        /* ──────────────── Special Card (Last) ──────────────── */
-        .poetry-card.special {
-            border-color: rgba(212, 165, 116, 0.4);
-            background: rgba(25, 8, 22, 0.6);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 70px rgba(200, 140, 110, 0.15);
-        }
-
-        .poetry-card.special:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6), 0 0 100px rgba(210, 150, 120, 0.25);
-        }
-
-        .poetry-card.special .verse-line {
-            font-size: 1.45rem;
-        }
-
-        /* ──────────────── Footer ──────────────── */
+        /* تذييل */
         .footer {
             text-align: center;
-            padding: 3rem 1rem 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-divider {
-            width: 120px;
-            height: 2px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(90deg, transparent, var(--rose-soft), transparent);
-            border-radius: 2px;
-            opacity: 0.6;
-        }
-
-        .footer p {
+            margin-top: 2rem;
+            color: #e8b4b8;
             font-family: 'Cairo', sans-serif;
             font-size: 1rem;
-            color: var(--rose-soft);
-            opacity: 0.7;
-            letter-spacing: 0.04em;
+            opacity: 0.8;
         }
 
-        .footer .heart-row {
-            font-size: 1.6rem;
-            letter-spacing: 0.3em;
-            margin-bottom: 0.4rem;
-            animation: heartbeat 2.2s ease-in-out infinite;
+        .footer span {
+            font-size: 1.5rem;
             display: inline-block;
+            animation: heartbeat 2s infinite;
         }
 
-        /* ──────────────── Responsive ──────────────── */
-        @media (max-width: 768px) {
-            .main-wrapper {
-                padding: 1.2rem 1rem 3rem;
+        /* تجاوب مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.8rem 1.2rem;
             }
 
             .header h1 {
-                font-size: 2rem;
-            }
-            .header .subtitle {
-                font-size: 0.9rem;
-            }
-            .header-icon {
-                font-size: 2.6rem;
+                font-size: 1.8rem;
             }
 
-            .poetry-card {
-                padding: 1.5rem 1.3rem;
-                border-radius: 14px;
-            }
-            .poetry-card .verse-line {
+            .couplet p {
                 font-size: 1.15rem;
                 line-height: 2;
-            }
-            .poetry-card .verse-line:first-child {
-                font-size: 1.2rem;
-            }
-            .poetry-card.special .verse-line {
-                font-size: 1.2rem;
-            }
-
-            .video-frame {
-                border-radius: 14px;
-                border-width: 1.5px;
-            }
-            .video-glow-ring {
-                inset: -8px;
-                border-radius: 18px;
-            }
-
-            .poetry-grid {
-                gap: 1.3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.6rem;
-            }
-            .header .subtitle {
-                font-size: 0.8rem;
-            }
-            .header-icon {
-                font-size: 2rem;
-            }
-
-            .poetry-card {
-                padding: 1.2rem 1rem;
-                border-radius: 12px;
-            }
-            .poetry-card .verse-line {
-                font-size: 1.05rem;
-                line-height: 1.9;
-            }
-            .poetry-card .verse-line:first-child {
-                font-size: 1.1rem;
-            }
-            .poetry-card.special .verse-line {
-                font-size: 1.1rem;
-            }
-
-            .video-frame {
-                border-radius: 10px;
-            }
-            .video-glow-ring {
-                inset: -5px;
-                border-radius: 12px;
-                box-shadow: 0 0 30px 10px var(--rose-glow);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ──────────────── Floating Particles ──────────────── -->
-    <div class="particles-container" id="particlesContainer" aria-hidden="true"></div>
-
-    <!-- ──────────────── Main Content ──────────────── -->
-    <div class="main-wrapper">
-
-        <!-- Header -->
-        <header class="header">
-            <span class="header-icon">💝</span>
+    <div class="container">
+        <!-- العنوان -->
+        <div class="header">
+            <span class="icon">💝</span>
             <h1>اعتراف حب</h1>
-            <p class="subtitle">لِأَنَّ الْحُبَّ أَعْمَقُ مِمَّا تَكْتُبُ الْأَقْلَامْ</p>
-            <div class="header-divider"></div>
-        </header>
-
-        <!-- Video Section -->
-        <section class="video-section">
-            <div class="video-glow-ring"></div>
-            <div class="video-frame">
-                <iframe
-                id="youtubeVideo"
-                src="https://www.youtube.com/embed/Jg1satwrgMA?autoplay=1&mute=1&loop=1&playlist=Jg1satwrgMA&controls=1&rel=0&showinfo=0&modestbranding=1"
-                title="فيديو رومانسي"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen
-                loading="eager"
-            ></iframe>
+            <p class="subtitle">لأن الحب أعمق مما تكتب الأقلام</p>
         </div>
-        <div class="video-label">
-            <span>♪</span> <span>♫</span> <span>♪</span> استمع بينما تقرأ
+
+        <!-- الفيديو (تشغيل تلقائي) -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Jg1satwrgMA?autoplay=1&mute=1&loop=1&playlist=Jg1satwrgMA&controls=1&rel=0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen 
+                    loading="eager">
+            </iframe>
         </div>
-    </section>
+        <div class="music-note">♪ استمع بينما تقرأ ♪</div>
 
-    <!-- Poetry Cards -->
-    <div class="poetry-grid" id="poetryGrid">
-
-        <!-- Card 1 -->
-        <article class="poetry-card" data-delay="0">
-            <span class="card-ornament">✨</span>
-            <div class="verse-couplet">
-                <p class="verse-line">لَوْ قُلْتُ إِنِّي أُحِبُّكِ لَنْ يَكْفِيَ الْكَلَامْ</p>
-                <p class="verse-line">فَالْحُبُّ أَعْمَقُ مِمَّا تَكْتُبُ الْأَقْلَامْ</p>
-                <span class="verse-divider"></span>
-                <p class="verse-line">أَنْتِ الَّتِي كُلَّمَا ضَاقَ الزَّمَانُ بِيَا</p>
-                <p class="verse-line">أَلْقَيْتُ رُوحِي عَلَى صَوْتِكِ فَانْزَاحَ الْآلَامْ</p>
+        <!-- الأبيات الشعرية كاملة ومرتبة -->
+        <div class="poetry">
+            <!-- البيت الأول -->
+            <div class="couplet">
+                <p>لَوْ قُلْتُ إِنِّي أُحِبُّكِ لَنْ يَكْفِيَ الْكَلَامْ</p>
+                <p>فَالْحُبُّ أَعْمَقُ مِمَّا تَكْتُبُ الْأَقْلَامْ</p>
             </div>
-        </article>
+            <div class="divider"></div>
 
-        <!-- Card 2 -->
-        <article class="poetry-card" data-delay="100">
-            <span class="card-ornament">🌙</span>
-            <div class="verse-couplet">
-                <p class="verse-line">أُخْفِي حَنِينِي… فَتَفْضَحُنِي نَظَرَاتِي</p>
-                <p class="verse-line">وَكَأَنَّ عَيْنَيْكِ فِي أَعْمَاقِي إِلْهَامْ</p>
-                <span class="verse-divider"></span>
-                <p class="verse-line">إِنْ غِبْتِ عَنِّي تَبَدَّلَ الْكَوْنُ وَحْشَتَهُ</p>
-                <p class="verse-line">وَإِنْ حَضَرْتِ تَبَدَّلَتْ دُنْيَايَ أَحْلَامْ</p>
+            <!-- البيت الثاني -->
+            <div class="couplet">
+                <p>أَنْتِ الَّتِي كُلَّمَا ضَاقَ الزَّمَانُ بِيَا</p>
+                <p>أَلْقَيْتُ رُوحِي عَلَى صَوْتِكِ فَانْزَاحَ الْآلَامْ</p>
             </div>
-        </article>
+            <div class="divider"></div>
 
-        <!-- Card 3 -->
-        <article class="poetry-card" data-delay="200">
-            <span class="card-ornament">💫</span>
-            <div class="verse-couplet">
-                <p class="verse-line">وَإِذَا سَأَلْتِينِي: لِمَاذَا أَنْتَ مُتْعَبٌ؟</p>
-                <p class="verse-line">قُلْتُ: الْهَوَى يَا حَبِيبَتِي أَتْعَبَ الْغَرَامْ</p>
-                <span class="verse-divider"></span>
-                <p class="vers
+            <!-- البيت الثالث -->
+            <div class="couplet">
+                <p>أُخْفِي حَنِينِي… فَتَفْضَحُنِي نَظَرَاتِي</p>
+                <p>وَكَأَنَّ عَيْنَيْكِ فِي أَعْمَاقِي إِلْهَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت الرابع -->
+            <div class="couplet">
+                <p>إِنْ غِبْتِ عَنِّي تَبَدَّلَ الْكَوْنُ وَحْشَتَهُ</p>
+                <p>وَإِنْ حَضَرْتِ تَبَدَّلَتْ دُنْيَايَ أَحْلَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت الخامس -->
+            <div class="couplet">
+                <p>وَإِذَا سَأَلْتِينِي: لِمَاذَا أَنْتَ مُتْعَبٌ؟</p>
+                <p>قُلْتُ: الْهَوَى يَا حَبِيبَتِي أَتْعَبَ الْغَرَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت السادس -->
+            <div class="couplet">
+                <p>فَمَا عُدْتُ أَدْرِي أَأَنْتِ الْحُبُّ أَمْ وَطَنِي</p>
+                <p>أَمْ أَنَّنِي فِي هَوَاكِ خُلِقْتُ مُنْذُ الْقِدَمْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت السابع -->
+            <div class="couplet">
+                <p>وَفِي الْعِيدِ جِئْتُ أُهْدِيكِ اعْتِرَافَ فَتًى</p>
+                <p>يَرَى بِعَيْنَيْكِ عُمْرًا كُلُّهُ سَلَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت الثامن -->
+            <div class="couplet">
+                <p>إِنْ قَالُوا: مَا الْعِيدُ؟ قُلْتُ ابْتِسَامَتُهَا</p>
+                <p>فَبِالْقُرْبِ مِنْهَا يَهُونُ الْهَمُّ وَالسَّقَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت التاسع -->
+            <div class="couplet">
+                <p>أَنْتِ الْفَرَحُ… وَأَنْتِ الضَّحْكَةُ الَّتِي خُلِقَتْ</p>
+                <p>لِتُزْهِرَ الرُّوحُ وَالأَيَّامُ وَالْأَعْوَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت العاشر -->
+            <div class="couplet">
+                <p>مَا كُنْتُ أُؤْمِنُ أَنَّ الْقَلْبَ يَسْكُنُهُ</p>
+                <p>شَخْصٌ… فَصِرْتِ أَنْتِ لِلْقَلْبِ الْمَقَامْ</p>
+            </div>
+            <div class="divider"></div>
+
+            <!-- البيت الأخير (مميز) -->
+            <div class="couplet final">
+                <p>فِي كُلِّ عِيدٍ سَأَدْعُو اللَّهَ يَحْفَظُكِ</p>
+                <p>فَأَنْتِ أَجْمَلُ مَا فِي الْعُمْرِ وَالْأَيَّامْ</p>
+            </div>
+        </div>
+
+        <!-- تذييل -->
+        <div class="footer">
+            <span>💖</span>
+            <p>أنتِ الحب… وأنتِ الوطن</p>
+        </div>
+    </div>
+
+</body>
+</html>
